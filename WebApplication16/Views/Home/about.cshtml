@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "about";
+}
+@Html.ActionLink("Contact", "contact", "Home")
+
+<h2>about</h2>
+<h1>@Html.ViewBag.a</h1>
+<h2>@Html.ViewData["b"]</h2>
+<h3>@TempData["c"]</h3>
+
+@Html.Partial("_PartialPage1")
+
+@using (Html.BeginForm("about", "Home", FormMethod.Post)) 
+ {
+    @Html.Label("Name")<br />
+    @Html.TextBox("abc",null, new {placeholder="name is here...",required = "required", @class = "form-control" })<br />
+
+    @Html.Label("EMail")<br />
+    @Html.TextBox("abc", null, new {type = "email", placeholder = "Email  is here...", required = "required", @class = "form-control" })<br />
+
+    @Html.Label("Password")<br />
+    @Html.Password("abc1", null, new { type = "password", placeholder = "password is here...", required = "required", @class = "form-control" })<br />
+
+    @Html.Label("url")<br />
+    @Html.TextBox("abc1", null, new { type = "url", placeholder = "url is here...", required = "required", @class = "form-control" })<br />
+
+  @Html.Label("Message")<br />
+  @Html.TextArea("abc2",null, new {type = "text", style= "height:200px",placeholder="message is here",@class="form-control" })<br />
+    
+  @Html.Label("Select Course")<br />
+  @Html.Label("html",new {style="color:red;font-size:20px" })@Html.CheckBox("abc", false)<br />@Html.Label("css  ")@Html.CheckBox("abc",false)<br />@Html.Label("java")@Html.CheckBox("abc",false)<br />
+  
+
+  @Html.Label("Select Gender")<br />
+  @Html.Label("male")@Html.RadioButton("abc","Male",false)<br />@Html.Label("Female")@Html.RadioButton("abc", "FeMale", false)<br />
+ 
+  @Html.Label("Select country")<br />
+  <select class="form-control" required>
+      <option value="">---------Select Country---------</option>
+      <option value="Pakistan" >Pakistan</option>
+      <option value="India">India</option>
+      <option value="America">America</option>
+
+  </select><br /><br />
+<a href="@Url.Action("contact","Home")">Contact</a><br /><br />
+
+
+
+
+   <input type="submit" class="btn btn-success btn-block" />
+}
+
